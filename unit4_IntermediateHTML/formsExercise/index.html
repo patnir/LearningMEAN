@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Forms Exercise</title>
+</head>
+<body>
+<h1>Register</h1>
+<form>
+	<label>First Name: <input name="FirstName" type="text" placeholder="John"></label>
+	<label>Last Name: <input name="LastName" type="text" placeholder="Smith"></label>
+	<p>
+		<label>Male<input name="gender" type="radio" value="MALE"></label>
+		<label>Female<input name="gender" type="radio" value="FEMALE"></label>
+		<label>Other<input name="gender" type="radio" value="OTHER"></label>
+	</p>
+	<p>
+		<label>Email: <input type="email" placeholder="email" name="email"></label>
+		<label> Password: <input type="password" placeholder="your password" name="password"></label>
+	</p>
+	<p>	
+		Birthday:
+		<select name="Month">
+			<option selected>Month</option>
+			<option>January</option>
+			<option>February</option>
+		</select>
+		<select name="Day">
+			<option selected>Day</option>
+			<option>0</option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+		</select>
+		<select name="Year">
+			<option selected>Year</option>
+			<option>1995</option>
+			<option>1996</option>
+		</select>
+	</p>
+
+	<p><label>I agree to the terms and conditions<input type="checkbox" name="Agree"></label></p>
+	<input type="submit">
+
+</form>
+</body>
+</html>
