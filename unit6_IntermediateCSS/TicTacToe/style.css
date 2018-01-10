@@ -1,0 +1,29 @@
+h1 {
+	color: blue;
+	text-align: center;
+}
+
+td {
+	width: 50px;
+	height: 50px;
+}
+
+table {
+	margin: auto;
+}
+
+.row1 td {
+	border-bottom: 1px solid black;
+}
+
+.row3 td {
+	border-top: 1px solid black;
+}
+
+tr td:nth-of-type(3) {
+	border-left: 1px solid black;
+}
+
+tr td:nth-of-type(1) {
+	border-right: 1px solid black;
+}
