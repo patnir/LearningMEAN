@@ -1,0 +1,18 @@
+<% include partials/header %>
+
+<h1>The Posts Page</h1>
+
+<ul>
+<% for(var i = 0; i < posts.length; i++) { %>
+	<li><%= posts[i].title %> by <%= posts[i].autor %></li>
+<% } %>
+</ul>
+
+<ol>
+<% posts.forEach(function(post) { %>
+	<li><%= post.title %> by <strong><%= post.autor %></strong></li>
+<% }) %>
+
+</ol>
+
+<% include partials/footer %>
