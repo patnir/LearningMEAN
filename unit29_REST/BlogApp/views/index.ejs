@@ -1,5 +1,8 @@
 <% include partials/header %>
-<h1>Index Page</h1>
+<div class="ui main text container">
+<div class="ui huge header">
+Index Page
+</div>
 
 <% blogs.forEach(function(blog) { %>
     <h2><%= blog.title %></h2>
@@ -9,5 +12,7 @@
     <a href="/blogs/<%=blog._id%>">Read More</a>
     
 <% }) %>
+
+</div>
 
 <% include partials/footer %>
