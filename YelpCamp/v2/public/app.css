@@ -1,0 +1,26 @@
+body {
+    /* color: purple; */
+    /* background-color: yellow; */
+}
+
+/* img {
+    width: 80%;
+    margin: auto 10%;
+    padding-bottom: 50px;
+    height: 400px;
+} */
+
+#campground-images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#campground-form {
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+#campground-new-header {
+    text-align: center;
+}
