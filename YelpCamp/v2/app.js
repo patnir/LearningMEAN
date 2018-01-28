@@ -100,14 +100,6 @@ app.get("/campgrounds/:id", function(req, res) {
     //res.send("This will be the showpage one day");
     var id = req.params.id;
     console.log(id);
-    // Campground.findById(id, function(err, foundCampground) {
-    //     if (err) {
-    //         console.log("error with id " + err);
-    //     }
-    //     else {
-    //         res.render("show", {campground: foundCampground});
-    //     }
-    // });
 
     Campground.findById(id).populate("comments").exec(function(err, foundCampground) {
             if (err) {
@@ -128,3 +120,13 @@ app.get("*", function(req, res) {
 app.listen(3000, function(req, res) {
     console.log("Started YelpCamp V1 Server");
 });
+
+
+// Campground.findById(id, function(err, foundCampground) {
+//     if (err) {
+//         console.log("error with id " + err);
+//     }
+//     else {
+//         res.render("show", {campground: foundCampground});
+//     }
+// });

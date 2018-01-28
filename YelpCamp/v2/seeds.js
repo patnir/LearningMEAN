@@ -46,7 +46,7 @@ function seedDB() {
                             } else {
                                 createdGround.comments.push(comment);
                                 createdGround.save();
-                                console.log(createdGround);
+                                //console.log(createdGround);
                             }
                         });
                     }
