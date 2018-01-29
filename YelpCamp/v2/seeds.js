@@ -26,45 +26,42 @@ var data = [
 ];
 
 function seedDB() {
-    Campground.remove({}, function(err) {
-        if (err) {            
-            console.log("err");
-
+    Comment.remove({}, function(err) {
+        if(err) {
+            console.log(err + "\n\ndeleting comments\n");
         } else {
-            console.log("removed campgrounds");
-            data.forEach(function(seed) {
-                Campground.create(seed, function(err, createdGround) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        Comment.create({
-                            text: "This place is the bomb", 
-                            author: "Homer"
-                        }, function(err, comment) {
+            console.log("removed comments");
+
+            Campground.remove({}, function(err) {
+                if (err) {            
+                    console.log("err");
+        
+                } else {
+                    console.log("removed campgrounds");
+                    data.forEach(function(seed) {
+                        Campground.create(seed, function(err, createdGround) {
                             if (err) {
                                 console.log(err);
                             } else {
-                                createdGround.comments.push(comment);
-                                createdGround.save();
-                                //console.log(createdGround);
+                                Comment.create({
+                                    text: "This place is the bomb", 
+                                    author: "Homer"
+                                }, function(err, comment) {
+                                    if (err) {
+                                        console.log(err);
+                                    } else {
+                                        createdGround.comments.push(comment._id);
+                                        createdGround.save();
+                                        //console.log(createdGround);
+                                    }
+                                });
                             }
-                        });
-                    }
-                })
+                        })
+                    });
+                }
             });
         }
     });
-
-    // add a few campgrounds
-    // Campground.create(data, function(err, campgrounds) {
-    //     if(err) {
-    //         console.log("err");
-    //     }
-    //     else {
-    //         console.log(campgrounds);
-    //     }
-    // });
-    // add comments
 }
 
 // function seedDB() {
