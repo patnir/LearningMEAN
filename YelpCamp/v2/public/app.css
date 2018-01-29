@@ -10,6 +10,15 @@ body {
     height: 400px;
 } */
 
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0px;
+}
+
+
 #campground-images {
     display: flex;
     flex-wrap: wrap;
