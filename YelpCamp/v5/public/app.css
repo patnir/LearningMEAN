@@ -1,0 +1,22 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0px;
+}
+
+#campground-images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#campground-form {
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+#campground-new-header {
+    text-align: center;
+}
