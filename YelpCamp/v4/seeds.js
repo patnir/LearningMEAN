@@ -38,26 +38,26 @@ function seedDB() {
         
                 } else {
                     console.log("removed campgrounds");
-                    data.forEach(function(seed) {
-                        Campground.create(seed, function(err, createdGround) {
-                            if (err) {
-                                console.log(err);
-                            } else {
-                                Comment.create({
-                                    text: "This place is the bomb", 
-                                    author: "Homer"
-                                }, function(err, comment) {
-                                    if (err) {
-                                        console.log(err);
-                                    } else {
-                                        createdGround.comments.push(comment._id);
-                                        createdGround.save();
-                                        //console.log(createdGround);
-                                    }
-                                });
-                            }
-                        })
-                    });
+                    // data.forEach(function(seed) {
+                    //     Campground.create(seed, function(err, createdGround) {
+                    //         if (err) {
+                    //             console.log(err);
+                    //         } else {
+                    //             Comment.create({
+                    //                 text: "This place is the bomb", 
+                    //                 author: "Homer"
+                    //             }, function(err, comment) {
+                    //                 if (err) {
+                    //                     console.log(err);
+                    //                 } else {
+                    //                     createdGround.comments.push(comment._id);
+                    //                     createdGround.save();
+                    //                     //console.log(createdGround);
+                    //                 }
+                    //             });
+                    //         }
+                    //     })
+                    // });
                 }
             });
         }

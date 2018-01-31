@@ -13,14 +13,14 @@ var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_camp_4");
+mongoose.connect("mongodb://localhost/yelp_camp_5");
 
 app.use(bodyparser.urlencoded({extended: true}));
 //app.use(express.static("public"));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
-seedDB();
+//seedDB();
 
 // Passport config
 
