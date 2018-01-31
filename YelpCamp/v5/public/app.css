@@ -20,3 +20,7 @@
 #campground-new-header {
     text-align: center;
 }
+
+#campground_delete_form {
+    display: inline;
+}

@@ -22,6 +22,10 @@
                             Submitted by: <%= campground.author.username %>
                         </em></p>
                         <a class="btn btn-warning" href="/campgrounds/<%=campground._id%>/edit">Edit Campground</a>
+                        
+                        <form id="campground_delete_form" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                             <button class="btn btn-danger">Delete Campground</button>
+                        </form>
                     </div>
             </div>
             <div class="well">
