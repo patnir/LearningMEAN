@@ -33,7 +33,7 @@ router.post("/", isLoggedIn, function(req, res) {
                     // console.log(campground);
                     // console.log(campground.comments);
                     // console.log(comment);
-                    comment.author._id = req.user._id;
+                    comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
                     // add username and id to comments
                     comment.save();
@@ -49,6 +49,43 @@ router.post("/", isLoggedIn, function(req, res) {
     });
 });
 
+router.get("/:comment_id/edit", checkCommentOwnership, function(req, res){
+    var campgroundId = req.params.id;
+    var commentId = req.params.comment_id;
+    Comment.findById(commentId, function(err, foundComment) {
+        if (err) {
+            res.redirect("back");
+        } else {
+            res.render("comments/edit", {campground_id: campgroundId, comment: foundComment});
+        }
+    })
+});
+
+router.put("/:comment_id", checkCommentOwnership, function(req, res) {
+    //res.send("you hit the update route");
+    var commentId = req.params.comment_id;
+    Comment.findByIdAndUpdate(commentId, req.body.comment, function(err, updatedComment) {
+        if (err) {
+            res.redirect("back");
+        } else  {
+            res.redirect("/campgrounds/" + req.params.id);
+        }
+    }); 
+});
+
+// DELETE Comment
+
+router.delete("/:comment_id", checkCommentOwnership, function(req, res) {
+    Comment.findByIdAndRemove(req.params.comment_id, function(err) {
+        if (err) {
+            console.log(err);
+            res.redirect("back");
+        } else {
+            res.redirect("/campgrounds/" + req.params.id);
+        }
+    });
+});
+
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
@@ -56,5 +93,30 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login");
 }
 
+function checkCommentOwnership(req, res, next) {
+    if (req.isAuthenticated()) {
+        Comment.findById(req.params.comment_id, function(err, foundComment) {
+            console.log("++++Comment: " + foundComment.author);
+            console.log("++++User id: " + req.user._id);
+            if(err) {
+                res.redirect("back");
+            }
+            else  {
+                if (foundComment.author.id === null) {
+                    res.redirect("back");
+                } else {
+                    if (foundComment.author.id.equals(req.user._id)) {
+                        next();
+                    } else {
+                        console.log("+++++YOU DIDNT MATCH USERS");
+                        res.redirect("back");
+                    }
+                }
+            }
+        });
+    } else {
+        res.redirect("back");
+    }
+}
 
 module.exports = router;
