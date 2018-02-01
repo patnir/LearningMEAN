@@ -1,0 +1,52 @@
+// Campground.findById(id, function(err, foundCampground) {
+//     if (err) {
+//         console.log("error with id " + err);
+//     }
+//     else {
+//         res.render("show", {campground: foundCampground});
+//     }
+// });
+
+// var campgroundsToInitialize = [
+//     {name: "CG1", image: "https://images.unsplash.com/photo-1439946612398-57d8d0ac915d?ixlib=rb-0.3.5&s=4005af16c32eb614cb5537b43b45cd7b&auto=format&fit=crop&w=1050&q=80", 
+//         description: "Camp Ground 1 is Beautiful"},
+//     {name: "CG2", image: "https://images.unsplash.com/photo-1486692957922-ea51ea8472bc?auto=format&fit=crop&w=1073&q=80", 
+//         description: "Campground 2 is beautiful"}, 
+//     {name: "CG3", image: "https://images.unsplash.com/photo-1504519733529-35b35d10eee2?auto=format&fit=crop&w=1051&q=80", 
+//         description: "campground 3 is beautiful"}, 
+//     {name: "CG4", image: "https://images.unsplash.com/photo-1459292414836-763d35c7ae4c?ixlib=rb-0.3.5&s=bd02951bae92abbc4f5aad65b08f0a74&auto=format&fit=crop&w=1050&q=80", 
+//         description: "campground 4 is beautiful"}
+// ]
+
+// Schema setu
+
+// function createMultipleCampgrounds(array) {
+//     Campground.create(array, function(err, campground) {
+//         if (err) {
+//             console.log(err);
+//         }
+//         else {
+//             console.log("CREATED CG1");
+//             console.log(campground);
+//         }
+//     });
+// }
+
+// createMultipleCampgrounds(campgroundsToInitialize);
+
+// Campground.create({
+//     name: "CG2", 
+//     image: "https://images.unsplash.com/photo-1486692957922-ea51ea8472bc?auto=format&fit=crop&w=1073&q=80"
+// }, function(err, campground) {
+//     if (err) {
+//         console.log(err);
+//     }
+//     else {
+//         console.log("CREATED CG1");
+//         console.log(campground);
+//     }
+// });
+
+// router.get("*", function(req, res) {
+//     res.redirect("/");
+// });
